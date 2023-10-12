@@ -4,7 +4,7 @@
   <title>网页图形化界面示例</title>
 </head>
 <body>
-  <h1>输入数据并获取反馈</h1>
+  <h1>🐖为逸是不是郑文榜的儿子，请输入是或者否</h1>
   <input type="text" id="inputData" placeholder="输入数据">
   <button id="submitButton">提交</button>
   <p id="feedback"></p>
@@ -19,9 +19,14 @@
     submitButton.addEventListener("click", function() {
       // 获取用户输入的数据
       const userInput = inputData.value;
-
-      // 在反馈元素中显示用户输入的数据
-      feedback.textContent = "你输入的数据是：" + userInput;
+      // 检查输入是否为"是"
+      if (userInput === "是") {
+        // 如果输入为"是"，回答正确
+        feedback.textContent = "回答正确，🐖为逸是郑文榜的儿子！";
+      } else {
+        // 如果输入不是"是"，要求重新输入
+        feedback.textContent = "请重新输入“是”";
+      }
     });
   </script>
 </body>

@@ -1,33 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>flasjf</title>
+    <title>生成图</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <h1>郑智豪是不是郑文榜的儿子，请输入是或者否</h1>
-  <input type="text" id="inputData" placeholder="输入数据">
-  <button id="submitButton">提交</button>
-  <p id="feedback"></p>
+    <div class="header">
+        <h1>Dynamic Deployment and Meta-learning-based Application Provision</h1><br>
+    </div>
+    <div id="input-container">
+        <div>  
+            <label for="nodes-input">Nodes &nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;</label>
+            <label for="edges-input">&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;Edge ID</label>
+            <label for="edges-input">&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;BER</label>
+            <label for="edges-input">&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;Bit Rate</label><br>
+            <input id="nodes-input" type="text" placeholder="Number of network nodes"  style="width: 370px; height: 20px;border: 2px solid rgba(0, 85, 128, 0.95);" />
+            <!-- <label for="edges-input">Edge</label><br> -->     
+            <input id="edges-input" type="text" placeholder="1-2,2-3"  style="width: 400px; height: 20px;border: 2px solid rgba(0, 85, 128, 0.95);"/>
+            <input id="edges-input" type="text" placeholder="The highest BER value for QPSK modulation"  style="width: 370px; height: 20px;border: 2px solid rgba(0, 85, 128, 0.95);"/>
+            <input id="edges-input" type="text" placeholder="Links'Bit Rate"  style="width: 370px; height: 20px;border: 2px solid rgba(0, 85, 128, 0.95);"/>
+            <button id="generate-button">✓</button>
+        </div>
+        <br>
+    </div>
+    <section class  = "shop">
+    <img src="组合图片.png" alt="Your Image" />   
+    <!-- <div class="info">
+        <label for="nodes-input">Nodes </label><br>
+        <input id="edges-input" type="text" placeholder="1-2,2-3"  style="width: 400px; height: 20px;border: 2px solid rgba(0, 85, 128, 0.95);"/>
+        <h2>woshinidie</h2>
+    </div> -->
+    <div class="rectangle">
+        <h2 style="color: rgba(0, 85, 128, 0.95);">Predict BER</h2>
+        <label for="nodes-input">Symbol Rate</label>
+        <input id="edges-input" type="text"  style="width: 370px; height: 20px;border: 2px solid rgba(0, 85, 128, 0.95);"/>
+        <br>
+        <label for="nodes-input">Modulation Format</label>
+        <input id="edges-input" type="text"   style="width: 370px; height: 20px;border: 2px solid rgba(0, 85, 128, 0.95);"/>
+        <br>
+        <label for="nodes-input">Nnumber of EDFAs</label>
+        <input id="edges-input" type="text"  style="width: 370px; height: 20px;border: 2px solid rgba(0, 85, 128, 0.95);"/>
+        <label for="nodes-input">EDFA current1</label>
+        <input id="edges-input" type="text"  style="width: 370px; height: 20px;border: 2px solid rgba(0, 85, 128, 0.95);"/>
+        <label for="nodes-input">EDFA current2</label>
+        <input id="edges-input" type="text"   style="width: 370px; height: 20px;border: 2px solid rgba(0, 85, 128, 0.95);"/>
+        <button id="generate-button">✓</button>
+        <label for="nodes-input">Predict BER</label>
+        <input id="edges-input" type="text"   style="width: 190px; height: 20px;border: 2px solid rgba(0, 85, 128, 0.95);"/>
+    </div>  
+    </section>
+    <!-- <div class="outer-box">
+        <div class="inner-box">
+            <img src="图片2.png" alt="Your Image" width="590" height="350" />
+            <img src="进度条.png" alt="Your Image" width="490" height="250" />
+        </div>
+      </div> -->
 
-  <script>
-    // 获取输入框、按钮和反馈元素
-    const inputData = document.getElementById("inputData");
-    const submitButton = document.getElementById("submitButton");
-    const feedback = document.getElementById("feedback");
-
-    // 添加按钮点击事件处理程序
-    submitButton.addEventListener("click", function() {
-      // 获取用户输入的数据
-      const userInput = inputData.value;
-      // 检查输入是否为"是"
-      if (userInput === "是") {
-        // 如果输入为"是"，回答正确
-        feedback.textContent = "回答正确，郑智豪是郑文榜的儿子！";
-      } else {
-        // 如果输入不是"是"，要求重新输入
-        feedback.textContent = "回答错误，请重新输入！";
-      }
-    });
-  </script>
+    <script src="your-script.js"></script> 
+    <style>
+        .circle {
+          width: 20px;
+          height: 20px;
+          background-color: #3498db;
+          border-radius: 50%;
+          display: inline-block;
+          margin: 5px;
+        }
+    </style>
 </body>
 </html>
+
+<!-- <div id="graph-container" style="border: 2px solid #000; width: 797px; height: 400px; padding: 10px;margin-top: 20px;"> -->
